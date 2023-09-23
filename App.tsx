@@ -1,29 +1,21 @@
-import {StyleSheet, Text, View, ViewStyle} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {constants} from './src/constants/index';
 
-type stylesProps = {
-  view: ViewStyle;
-  text: {
-    fontSize: number;
-  };
-};
+const Stack = createNativeStackNavigator();
 
-const styles: stylesProps = StyleSheet.create({
-  view: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 50,
-  },
-});
-
-function App(): JSX.Element {
+const App = () => {
   return (
-    <View style={styles.view}>
-      <Text style={styles.text}>Hello World</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={constants.home}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
 export default App;
