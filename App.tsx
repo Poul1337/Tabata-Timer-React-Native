@@ -1,6 +1,13 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ViewStyle} from 'react-native';
 
-const styles = StyleSheet.create({
+type stylesProps = {
+  view: ViewStyle;
+  text: {
+    fontSize: number;
+  };
+};
+
+const styles: stylesProps = StyleSheet.create({
   view: {
     flex: 1,
     justifyContent: 'center',
